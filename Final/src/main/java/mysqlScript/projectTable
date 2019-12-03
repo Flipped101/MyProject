@@ -1,0 +1,20 @@
+-- auto-generated definition
+create table project
+(
+    id                 bigint auto_increment
+        primary key,
+    title              varchar(255) not null,
+    projectCategory_id bigint       not null,
+    projectType_id     bigint       not null,
+    projectStatus_id   bigint       not null,
+    teacher_id         bigint       not null,
+    constraint project_projectcategory_id_fk
+        foreign key (projectCategory_id) references projectcategory (id),
+    constraint project_projectstatus_id_fk
+        foreign key (projectStatus_id) references projectstatus (id),
+    constraint project_projecttype_id_fk
+        foreign key (projectType_id) references projecttype (id),
+    constraint project_teacher_id_fk
+        foreign key (teacher_id) references teacher (id)
+);
+

@@ -1,0 +1,63 @@
+.\mysqld -install mysql
+
+net start mysql
+
+.\mysql -uroot -p
+
+use mysql
+
+UPDATE user SET Password = PASSWORD('22') WHERE user = 'root';
+
+flush privileges;
+
+create database bysj default character set utf8 collate utf8_general_ci;
+
+use bysj;
+
+create table school(
+    id bigint not null auto_increment,
+    description varchar(255) not null,
+    no varchar(255) not null,
+    remarks varchar(255),
+    primary key (id)
+    );
+
+select * from degree;
+
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS sp_addSchool//
+
+CREATE PROCEDURE sp_addSchool(
+     IN description VARCHAR(255),
+     no VARCHAR(255),
+     remarks VARCHAR(255),
+     OUT id INT
+     )
+     BEGIN
+     INSERT INTO school (description,no,remarks)
+     VALUES(description,no,remarks);
+     SELECT LAST_INSERT_ID() INTO id;
+     END//
+
+DELIMITER ;
+
+SHOW PROCEDURE STATUS LIKE'sp%'\G;
+
+call sp_addSchool("№ЬАн", "02", "best",@id);
+
+CREATE PROCEDURE sp_addDepartment(
+     IN description VARCHAR(255),
+     no VARCHAR(255),
+     remarks VARCHAR(255),
+     school_id INT,
+     OUT id INT
+     )
+     BEGIN
+     INSERT INTO department (description,no,remarks,school_id)
+     VALUES(description,no,remarks,school_id);
+     SELECT LAST_INSERT_ID() INTO id;
+     END//
+
+alter table school add unique(no);
+set global time_zone = '+8:00';

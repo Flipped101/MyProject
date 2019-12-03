@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Final/src/main/java/controller" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Final/src/main/java/dao" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Final/src/main/java/domain" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Final/src/main/java/filter" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Final/src/main/java/mysqlScript" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Final/src/main/java/postmanTest" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Final/src/main/java/service" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Final/src/main/java/util" charset="GBK" />
+  </component>
+</project>

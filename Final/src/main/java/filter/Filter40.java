@@ -12,10 +12,7 @@ import java.util.Set;
 
 @WebFilter(filterName = "Filter40",urlPatterns = "/*")//对所有资源进行过滤
 public class Filter40 implements Filter {
-    //    private Set<String> toExclude = new HashSet<>();
     public void init(FilterConfig config) throws ServletException {
-//        toExclude.add("/login");
-//        toExclude.add("/demo");
     }
     public void destroy() {
     }

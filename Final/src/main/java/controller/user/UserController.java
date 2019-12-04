@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -82,6 +83,9 @@ public class UserController extends HttpServlet {
                 message.put("message", "用户名或密码错误!");
             }
             else {
+                HttpSession session = request.getSession();
+                session.setAttribute("currentUser", userToCheck);
+
                 UserService.getInstance().updateDate(userToCheck.getUsername());
                 responseUserByUserName(userToCheck.getUsername(), response);
                 message.put("message", "登录成功!");
@@ -94,7 +98,6 @@ public class UserController extends HttpServlet {
         //响应message到前端
         response.getWriter().println(message);
     }
-
 
     //通过id响应一个用户对象
     private void responseUserById(int id, HttpServletResponse response)
